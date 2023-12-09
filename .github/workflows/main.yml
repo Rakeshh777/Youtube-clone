@@ -7,17 +7,17 @@ on:
 
 jobs:
   deploy:
-    name: Build & Deployment
+    name: Build and deployment
     runs-on: ubuntu-latest
 
     steps:
       - name: get the source code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: install node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: "12"
+          node-version: "14"
 
       - name: install node packages
         run: npm i
@@ -27,7 +27,7 @@ jobs:
         env:
           CI: false
 
-      - name: Deploy to Firebase
+      - name: deploy to firebase
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
