@@ -5,6 +5,7 @@ import { FaBars } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdNotifications, MdApps } from "react-icons/md";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useSelector } from "react-redux";
 
 const Header = ({ handleToggleSidebar }) => {
   const [input, setInput] = useState("");
@@ -14,6 +15,8 @@ const Header = ({ handleToggleSidebar }) => {
     e.preventDefault();
     history.push(`/search/${input}`);
   };
+
+  const user = useSelector((state) => state?.auth?.user);
   return (
     <div className="header">
       <FaBars
@@ -41,10 +44,7 @@ const Header = ({ handleToggleSidebar }) => {
       <div className="header_icons">
         <MdNotifications size={28} />
         <MdApps size={28}></MdApps>
-        <img
-          src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png"
-          alt="avatar"
-        />
+        <img src={user?.photoUrl} alt="avatar" />
       </div>
     </div>
   );

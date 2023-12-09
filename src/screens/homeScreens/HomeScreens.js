@@ -21,8 +21,6 @@ const HomeScreens = () => {
     (state) => state.homeVideos
   );
 
-  console.log("videos", videos);
-
   const fetchData = () => {
     activeCategory === "All"
       ? dispatch(getPopularVideos())
@@ -46,9 +44,9 @@ const HomeScreens = () => {
                 <Video video={video} key={video.id} />
               </Col>
             ))
-          : [...Array(20)].map(() => (
-              <Col lg={3} md={4}>
-                <SkeletonVideo />
+          : [...Array(20)].map((e, i) => (
+              <Col lg={3} md={4} key={i}>
+                <SkeletonVideo key={i} />
               </Col>
             ))}
       </InfiniteScroll>

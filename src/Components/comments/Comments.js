@@ -26,15 +26,14 @@ const Comments = ({ videoId, totalComments }) => {
   const _comments = comments?.map(
     (comment) => comment.snippet.topLevelComment.snippet
   );
+
+  const { photoUrl } = useSelector((state) => state.auth?.user);
+
   return (
     <div className="comments">
       <p>{totalComments} Comments</p>
       <div className="comments_form d-flex w-100 my-2">
-        <img
-          src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png"
-          alt=""
-          className="rounded-circle mr-3"
-        />
+        <img src={photoUrl} alt="" className="rounded-circle mr-3" />
         <form onSubmit={handleComment} className="d-flex flex-grow-1">
           <input
             type="text"

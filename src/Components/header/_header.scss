@@ -41,7 +41,7 @@
       padding: 0.3px;
       color: $text-color;
 
-      &.focus {
+      &:focus {
         outline: none;
       }
     }

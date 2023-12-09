@@ -25,13 +25,9 @@ const WatchScreen = () => {
     dispatch(getPopularVideos());
   }, [dispatch, id]);
 
-  const {
-    videos: relatedVideos,
-    activeCategory,
-    loading: relatedVideosLoading,
-  } = useSelector((state) => state.homeVideos);
-
-  console.log("related", relatedVideos, activeCategory);
+  const { videos: relatedVideos, loading: relatedVideosLoading } = useSelector(
+    (state) => state.homeVideos
+  );
 
   return (
     <Row>

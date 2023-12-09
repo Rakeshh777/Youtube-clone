@@ -32,7 +32,7 @@ const VideoMetadata = ({ video: { snippet, statistics }, videoId }) => {
         <h5>{title}</h5>
         <div className="d-flex justify-content-between align-items-center py-1">
           <span>
-            {numeral(viewCount).format("0.a")} Views •
+            {numeral(viewCount).format("0.a")} Views •{" "}
             {moment(publishedAt).fromNow()}
           </span>
 
